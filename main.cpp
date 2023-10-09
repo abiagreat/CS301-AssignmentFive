@@ -1,75 +1,33 @@
 #include <iostream>
-#include <fstream>
-#include <stdexcept>
-
-template <typename T>
-class DynamicStack {
-private:
-    struct Node {
-        T data;
-        Node* next;
-    };
-
-    Node* top;
-
-public:
-    DynamicStack() : top(nullptr) {}
-
-    ~DynamicStack() {
-        while (!isEmpty()) {
-            pop();
-        }
-    }
-
-    void push(const T& item) {
-        Node* newNode = new Node{item, top};
-        top = newNode;
-    }
-
-    void pop() {
-        if (isEmpty()) {
-            throw std::runtime_error("Stack is empty");
-        }
-        Node* temp = top;
-        top = top->next;
-        delete temp;
-    }
-
-    bool isEmpty() const {
-        return top == nullptr;
-    }
-};
+#include "DynamicStack.h"
 
 int main() {
-    DynamicStack<char> charStack;
+    DynamicStack<int> intStack;
+    DynamicStack<std::string> stringStack;
 
-    std::ifstream inputFile("input.txt");
-    std::ofstream outputFile("output.txt");
+    intStack.push(5);
+    intStack.push(10);
+    intStack.push(15);
 
-    if (!inputFile) {
-        std::cerr << "Error opening input file." << std::endl;
-        return 1;
+    std::cout << "Int Stack Is Empty: " << intStack.isEmpty() << std::endl;
+
+    stringStack.push("Hello");
+    stringStack.push("World");
+
+    std::cout << "String Stack Is Empty: " << stringStack.isEmpty() << std::endl;
+
+    while (!intStack.isEmpty()) {
+        std::cout << "Popped: " << intStack.top->data << std::endl;
+        intStack.pop();
     }
 
-    if (!outputFile) {
-        std::cerr << "Error opening output file." << std::endl;
-        return 1;
+    while (!stringStack.isEmpty()) {
+        std::cout << "Popped: " << stringStack.top->data << std::endl;
+        stringStack.pop();
     }
 
-    char ch;
-    while (inputFile.get(ch)) {
-        charStack.push(ch);
-    }
-
-    while (!charStack.isEmpty()) {
-        outputFile.put(charStack.top->data);
-        charStack.pop();
-    }
-
-    inputFile.close();
-    outputFile.close();
-
-    std::cout << "File reversed successfully!" << std::endl;
+    std::cout << "Int Stack Is Empty: " << intStack.isEmpty() << std::endl;
+    std::cout << "String Stack Is Empty: " << stringStack.isEmpty() << std::endl;
 
     return 0;
 }
