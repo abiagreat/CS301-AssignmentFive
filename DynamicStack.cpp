@@ -4,7 +4,7 @@ template <typename T>
 DynamicStack<T>::DynamicStack() : top(nullptr) {}
 
 template <typename T>
-[[noreturn]] DynamicStack<T>::~DynamicStack() {
+DynamicStack<T>::~DynamicStack() {
     while (!isEmpty()) {
         pop();
     }

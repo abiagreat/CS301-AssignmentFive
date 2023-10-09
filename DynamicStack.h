@@ -13,10 +13,13 @@ private:
 public:
     DynamicStack();
 
-    [[noreturn]] ~DynamicStack();
+    ~DynamicStack();
     void push(const T& item);
     void pop();
     bool isEmpty() const;
 
     Node* top;
 };
+
+
+
