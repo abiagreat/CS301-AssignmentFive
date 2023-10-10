@@ -9,8 +9,6 @@ private:
         Node* next;
     };
 
-    Node* top;
-
 public:
     DynamicStack();
     ~DynamicStack();
@@ -18,6 +16,8 @@ public:
     void pop();
     bool isEmpty() const;
     T peek() const;
+
+    Node* top;
 };
 
 #include "DynamicStack.cpp" // Include the source file for template instantiation
