@@ -31,3 +31,11 @@ bool DynamicStack<T>::isEmpty() const {
     return top == nullptr;
 }
 
+template <typename T>
+T DynamicStack<T>::peek() const {
+    if (isEmpty()) {
+        throw std::runtime_error("Stack is empty");
+    }
+    return top->data;
+}
+
