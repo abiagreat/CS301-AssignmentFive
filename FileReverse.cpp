@@ -5,8 +5,8 @@
 int main() {
     DynamicStack<char> charStack;
 
-    std::ifstream inputFile("input.txt");
-    std::ofstream outputFile("output.txt");
+    std::ifstream inputFile("input.txt"); // Input file
+    std::ofstream outputFile("output.txt"); // Output file
 
     if (!inputFile) {
         std::cerr << "Error opening input file." << std::endl;
@@ -24,7 +24,7 @@ int main() {
     }
 
     while (!charStack.isEmpty()) {
-        outputFile.put(charStack.top->data);
+        outputFile.put(charStack.peek());
         charStack.pop();
     }
 
