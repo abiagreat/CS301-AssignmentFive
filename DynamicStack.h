@@ -10,16 +10,12 @@ private:
         Node* next;
     };
 
+    Node* top;
+
 public:
     DynamicStack();
-
     ~DynamicStack();
     void push(const T& item);
     void pop();
     bool isEmpty() const;
-
-    Node* top;
 };
-
-
-
