@@ -1,7 +1,3 @@
-//
-// Created by Abia Khan on 10/8/23.
-//
-
 #include <iostream>
 #include <fstream>
 #include "DynamicStack.h"
