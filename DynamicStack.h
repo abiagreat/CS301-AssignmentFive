@@ -1,6 +1,5 @@
 #pragma once
 #include <stdexcept>
-#include <string>
 
 template <typename T>
 class DynamicStack {
@@ -18,5 +17,8 @@ public:
     void push(const T& item);
     void pop();
     bool isEmpty() const;
+    T peek() const;
 };
+
+#include "DynamicStack.cpp" // Include the source file for template instantiation
 
