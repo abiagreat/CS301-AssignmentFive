@@ -30,3 +30,4 @@ template <typename T>
 bool DynamicStack<T>::isEmpty() const {
     return top == nullptr;
 }
+
