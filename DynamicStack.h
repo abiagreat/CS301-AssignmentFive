@@ -19,3 +19,4 @@ public:
     void pop();
     bool isEmpty() const;
 };
+
