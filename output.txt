@@ -1,3 +1,7 @@
+Int Stack is Empty: 0
+Popped: 20
 Popped: 15
 Popped: 10
 Popped: 5
+Popped: World
+Popped: Hello
