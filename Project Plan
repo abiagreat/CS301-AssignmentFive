@@ -21,7 +21,7 @@ We expect that each function will run successfully and that each test will pass.
 
 Class names: stringStack, dynamicStack, intStack
 
-Functions: 
+Functions: while, if-else statement
 
 Logic we tried to implement:
 
