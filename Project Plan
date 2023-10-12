@@ -25,4 +25,62 @@ Functions:
 
 Logic we tried to implement:
 
+#include <iostream>
+#include <fstream>
+#include <stack>
+
+template <typename T>
+class DynamicStack {
+private:
+    std::stack<T> stack;
+public:
+    void push(T item) {
+        stack.push(item);
+    }
+
+    void pop() {
+        stack.pop();
+    }
+
+    bool isEmpty() const {
+        return stack.empty();
+    }
+
+    T top() const {
+        return stack.top();
+    }
+};
+
+int main() {
+    std::ifstream inputFile("input.txt");
+    std::ofstream outputFile("output.txt");
+
+    if (!inputFile) {
+        std::cerr << "Error: Cannot open input file." << std::endl;
+        return 1;
+    }
+
+    DynamicStack<char> charStack;
+    char character;
+
+    // Read characters from the input file and push them onto the stack
+    while (inputFile.get(character)) {
+        charStack.push(character);
+    }
+
+    // Pop characters from the stack and write them to the output file
+    while (!charStack.isEmpty()) {
+        character = charStack.top();
+        charStack.pop();
+        outputFile.put(character);
+    }
+
+    std::cout << "File reversed successfully!" << std::endl;
+
+    // Close the file streams
+    inputFile.close();
+    outputFile.close();
+
+    return 0;
+}
 
