@@ -19,7 +19,7 @@ and will reverse their order.
 We expect that each function will run successfully and that each test will pass. 
 
 
-Class names: 
+Class names: stringStack, dynamicStack, intStack
 
 Functions: 
 
