@@ -19,10 +19,51 @@ and will reverse their order.
 We expect that each function will run successfully and that each test will pass. 
 
 
-Class names: 
+Class names: stringStack, dynamicStack, intStack
 
-Functions: 
+Functions: while, if-else statement
 
 Logic we tried to implement:
 
+#include <iostream>
+#include "DynamicStack.h" // Include necessary header file for DynamicStack
+
+int main() {
+    // Create instances of DynamicStack for integers and strings
+    DynamicStack<int> intStack;
+    DynamicStack<std::string> stringStack;
+
+    // Push integers onto the integer stack
+    intStack.push(5);
+    intStack.push(10);
+    intStack.push(15);
+
+    // Check if the integer stack is empty and print the result
+    std::cout << "Int Stack Is Empty: " << intStack.isEmpty() << std::endl;
+
+    // Push strings onto the string stack
+    stringStack.push("Hello");
+    stringStack.push("World");
+
+    // Check if the string stack is empty and print the result
+    std::cout << "String Stack Is Empty: " << stringStack.isEmpty() << std::endl;
+
+    // Pop and print integers from the integer stack until it's empty
+    while (!intStack.isEmpty()) {
+        std::cout << "Popped: " << intStack.top->data << std::endl;
+        intStack.pop();
+    }
+
+    // Pop and print strings from the string stack until it's empty
+    while (!stringStack.isEmpty()) {
+        std::cout << "Popped: " << stringStack.top->data << std::endl;
+        stringStack.pop();
+    }
+
+    // Check if the integer and string stacks are empty after popping all elements
+    std::cout << "Int Stack Is Empty: " << intStack.isEmpty() << std::endl;
+    std::cout << "String Stack Is Empty: " << stringStack.isEmpty() << std::endl;
+
+    return 0;
+}
 
