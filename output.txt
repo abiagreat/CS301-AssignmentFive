@@ -1,0 +1,3 @@
+Popped: 15
+Popped: 10
+Popped: 5

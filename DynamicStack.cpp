@@ -1,26 +1,28 @@
 #include "DynamicStack.h"
 
 template <typename T>
-DynamicStack<T>::DynamicStack() : top(nullptr) {}
+DynamicStack<T>::DynamicStack() {
+    top = nullptr;
+}
 
 template <typename T>
 DynamicStack<T>::~DynamicStack() {
-    while (!isEmpty()) {
+    while (top != nullptr) {
         pop();
     }
 }
 
 template <typename T>
-void DynamicStack<T>::push(const T& item) {
-    Node* newNode = new Node{item, top};
-    top = newNode;
+void DynamicStack<T>::push(T item) {
+    Node* location;
+    location = new Node;
+    location->data = item;
+    location->next = top;
+    top = location;
 }
 
 template <typename T>
 void DynamicStack<T>::pop() {
-    if (isEmpty()) {
-        throw std::runtime_error("Stack is empty");
-    }
     Node* temp = top;
     top = top->next;
     delete temp;
@@ -32,10 +34,20 @@ bool DynamicStack<T>::isEmpty() const {
 }
 
 template <typename T>
+bool DynamicStack<T>::isFull() const {
+    try {
+        Node* location = new Node;
+        delete location;
+        return false;
+    } catch (bad_alloc exception) {
+        return true;
+    }
+}
+
+template <typename T>
 T DynamicStack<T>::peek() const {
     if (isEmpty()) {
         throw std::runtime_error("Stack is empty");
     }
     return top->data;
 }
-
