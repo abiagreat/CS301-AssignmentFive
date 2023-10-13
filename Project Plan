@@ -7,15 +7,15 @@ CS 301-03
 Assignment 5 Project Plan
 
 Test cases: 10 
-We tested the input and output file. We tested the stack 
+We tested the input and output file(s). We tested the program when the int stack is empty, 
+when the string stack is empty, and when the string stack is empty. 
+We tested the result(s). 
 
 
 Expectations: 
-We expect to have the program to open a file and read its contents into a stack of characters.
-The program will pop the characters from the stack and 
-save them in a second text file. The order of the characters will be saved in the second file 
-and will reverse their order. 
-We expect that each function will run successfully and that each test will pass. 
+We expect the program to open and read the file(s). We expect the second file 
+to have the characters in reverse order. 
+We expect the program to run successfully and that each test will pass. 
 
 
 Class names: stringStack, dynamicStack, intStack
