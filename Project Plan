@@ -20,7 +20,7 @@ We expect the program to run successfully and that each test will pass.
 
 Class names: stringStack, charStack, intStack
 
-Functions: while, if-else statement, ifstream, ofstream
+Functions: while, if-else statement, ifstream, ofstream, get, push, isEmpty, put, peek, pop
 
 Logic we tried to implement:
 
