@@ -1,5 +1,6 @@
 // Group 3: Abia Khan and Mario Salinas
 // NetID: ac6212 and ry7931 
+// Work Cited: Dale, Nell. C++ Plus Data Structures, 6th Edition.
 // CS 301-03 
 // 10/10/23
 
