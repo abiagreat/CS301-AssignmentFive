@@ -26,44 +26,83 @@ Functions: while, if-else statement
 Logic we tried to implement:
 
 #include <iostream>
-#include "DynamicStack.h" // Include necessary header file for DynamicStack
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+#include "DynamicStack.h"   // Include the header file for DynamicStack
+#include "DynamicStack.cpp" // Include the implementation file for DynamicStack
 
 int main() {
-    // Create instances of DynamicStack for integers and strings
+    // Declare variables for file names and streams
+    string inputFileName, outputFileName;
+    ifstream inputFile;  // Input file stream
+    ofstream outputFile; // Output file stream
+    string command;     // Variable to store commands read from the file
+
+    // Create instances of DynamicStack for integers, strings, and characters
     DynamicStack<int> intStack;
-    DynamicStack<std::string> stringStack;
+    DynamicStack<string> stringStack;
+    DynamicStack<string> charStack;
 
-    // Push integers onto the integer stack
-    intStack.push(5);
-    intStack.push(10);
-    intStack.push(15);
+    // Set input and output file names
+    inputFileName = "input.txt";
+    outputFileName = "output.txt";
 
-    // Check if the integer stack is empty and print the result
+    // Open input file
+    inputFile.open(inputFileName.c_str());
+
+    // Open output file
+    outputFile.open(outputFileName.c_str());
+
+    // Check if input file is accessible
+    if (!inputFile.good()) {
+        cout << "I/O error. Can't find the input file! \n";
+        exit(2); // Exit the program if input file is not accessible
+    }
+
+    int inputNum;
+
+    // Read integers from the input file and push them onto the intStack
+    while (inputFile >> inputNum) {
+        intStack.push(inputNum);
+    }
+
+    // Display whether intStack is empty in the console and write it to the output file
     std::cout << "Int Stack Is Empty: " << intStack.isEmpty() << std::endl;
+    outputFile << "Int Stack is Empty: " << intStack.isEmpty() << endl;
 
-    // Push strings onto the string stack
+    // Push strings onto the stringStack
     stringStack.push("Hello");
     stringStack.push("World");
 
-    // Check if the string stack is empty and print the result
+    // Display whether stringStack is empty in the console and write it to the output file
     std::cout << "String Stack Is Empty: " << stringStack.isEmpty() << std::endl;
+    cout << "String stack is empty: " << stringStack.isEmpty() << endl;
 
-    // Pop and print integers from the integer stack until it's empty
+    // Pop and display integers from the intStack until it's empty, writing to the output file as well
     while (!intStack.isEmpty()) {
         std::cout << "Popped: " << intStack.top->data << std::endl;
+        outputFile << "Popped: " << intStack.top->data << endl;
         intStack.pop();
     }
 
-    // Pop and print strings from the string stack until it's empty
+    // Pop and display strings from the stringStack until it's empty, writing to the output file as well
     while (!stringStack.isEmpty()) {
         std::cout << "Popped: " << stringStack.top->data << std::endl;
+        outputFile << "Popped: " << stringStack.top->data << endl;
         stringStack.pop();
     }
 
-    // Check if the integer and string stacks are empty after popping all elements
+    // Display whether intStack and stringStack are empty after popping all elements
     std::cout << "Int Stack Is Empty: " << intStack.isEmpty() << std::endl;
     std::cout << "String Stack Is Empty: " << stringStack.isEmpty() << std::endl;
 
-    return 0;
+    // Close input and output files
+    inputFile.close();
+    outputFile.close();
+
+    return 0; // Indicate successful execution of the program
 }
 
