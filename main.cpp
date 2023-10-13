@@ -1,3 +1,9 @@
+// Group 3: Abia Khan and Mario Salinas
+// NetID: ac6212 and ry7931 
+// CS 301-03 
+// 10/10/23
+
+
 #include <iostream>
 #include <fstream>
 #include <string>
