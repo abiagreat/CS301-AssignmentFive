@@ -18,7 +18,7 @@ to have the characters in reverse order.
 We expect the program to run successfully and that each test will pass. 
 
 
-Class names: stringStack, dynamicStack, intStack
+Class names: stringStack, charStack, intStack
 
 Functions: while, if-else statement
 
