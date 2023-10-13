@@ -6,9 +6,10 @@ CS 301-03
 
 Assignment 5 Project Plan
 
+
 Test cases: 10 
-We tested the input and output file(s). We tested the program when the int stack is empty, 
-when the string stack is empty, and when the string stack is empty. 
+We tested the input and output file(s). We tested the program in terms of int stack,
+string stack, and char stack. 
 We tested the result(s). 
 
 
